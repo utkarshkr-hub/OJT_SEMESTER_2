@@ -1,0 +1,380 @@
+/* --- CSS Custom Design Variables for Theme Schemes --- */
+:root[data-theme="light"] {
+    --bg-primary: #f4f5f7;
+    --bg-secondary: #ffffff;
+    --bg-column: #ebecf0;
+    --bg-card: #ffffff;
+    --text-main: #172b4d;
+    --text-muted: #5e6c84;
+    --accent: #0052cc;
+    --accent-hover: #0065ff;
+    --border-color: #dfe1e6;
+    --shadow-sm: 0 1px 2px rgba(9, 30, 66, 0.25);
+    --shadow-md: 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+    --danger: #de350b;
+}
+
+:root[data-theme="dark"] {
+    --bg-primary: #0f111a;
+    --bg-secondary: #161925;
+    --bg-column: #1f2335;
+    --bg-card: #24293e;
+    --text-main: #a9b1d6;
+    --text-muted: #787c99;
+    --accent: #7aa2f7;
+    --accent-hover: #89ddff;
+    --border-color: #2b3046;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --danger: #f7768e;
+}
+
+/* --- Base Resets & Transitions --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header & Layout Container Structures --- */
+.app-header {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- Interface Buttons & Controls --- */
+.theme-btn, .btn-danger-outline, .btn-primary {
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+}
+.theme-btn:hover {
+    background-color: var(--bg-primary);
+}
+
+.btn-danger-outline {
+    background: none;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+.btn-danger-outline:hover {
+    background-color: var(--danger);
+    color: #fff;
+}
+
+.main-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- Dynamic Input Bar Form --- */
+.task-creation-section {
+    display: flex;
+    justify-content: center;
+}
+
+.task-form {
+    display: flex;
+    width: 100%;
+    max-width: 550px;
+    gap: 0.5rem;
+}
+
+.task-form input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+}
+.task-form input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-hover);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Kanban Grid Viewports (Responsive Flex and Grid) --- */
+.kanban-board {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .kanban-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Column Elements --- */
+.kanban-column {
+    background-color: var(--bg-column);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 75vh;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.25rem;
+}
+
+.column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.task-count {
+    background-color: var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+}
+
+/* --- Target Area Lists --- */
+.tasks-container {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 150px; /* Gives user drag access target room even when column is empty */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+/* Visual cue when holding a dragging item over a container */
+.tasks-container.drag-over {
+    background-color: rgba(122, 162, 247, 0.15);
+    outline: 2px dashed var(--accent);
+}
+
+/* --- Task Cards --- */
+.task-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+/* Styling applied to the original element while being dragged */
+.task-card.dragging {
+    opacity: 0.4;
+    border: 1px dashed var(--text-muted);
+}
+
+.task-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-break: break-word;
+    outline: none;
+}
+
+/* Editable state adjustment */
+.task-text[contenteditable="true"] {
+    background-color: var(--bg-primary);
+    padding: 0.25rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+.action-btn:hover {
+    color: var(--text-main);
+}
+.action-btn.delete:hover {
+    color: var(--danger);
+}
+.action-btn.save {
+    color: #10b981;
+}
+
+/* ANALYTICS DASHBOARD */
+
+.analytics-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 20px;
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.total {
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+
+.todo-card {
+    background: linear-gradient(135deg,#ef4444,#f97316);
+}
+
+.progress-card {
+    background: linear-gradient(135deg,#f59e0b,#eab308);
+}
+
+.done-card {
+    background: linear-gradient(135deg,#10b981,#22c55e);
+}
+
+.progress-section {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.progress-container {
+    width: 100%;
+    height: 28px;
+    background: var(--border-color);
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 50px;
+    background: linear-gradient(
+        90deg,
+        #22c55e,
+        #10b981,
+        #06b6d4
+    );
+    transition: width 0.6s ease;
+}
+
+.progress-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,0.15);
+}

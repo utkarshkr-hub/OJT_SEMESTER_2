@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Board</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-container">
+            <h1 class="logo"><i class="fas fa-clipboard-list"></i> KanbanFlow</h1>
+            <div class="controls">
+                <button id="clear-board-btn" class="btn-danger-outline" title="Clear all tasks from the board">
+                    <i class="fas fa-trash-alt"></i> Clear Board
+                </button>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="task-creation-section">
+            <form id="task-form" class="task-form">
+                <input type="text" id="task-input" placeholder="What needs to be done?" required autocomplete="off">
+                <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Task</button>
+            </form>
+        </section>
+        <!-- Analytics Dashboard -->
+        <section class="analytics-dashboard">
+
+            <div class="stats-grid">
+
+                <div class="stat-card total">
+                    <h3>Total Tasks</h3>
+                    <p id="totalTasks">0</p>
+                </div>
+
+                <div class="stat-card todo-card">
+                    <h3>To Do</h3>
+                    <p id="todoTasks">0</p>
+                </div>
+
+                <div class="stat-card progress-card">
+                    <h3>In Progress</h3>
+                    <p id="progressTasks">0</p>
+                </div>
+
+                <div class="stat-card done-card">
+                    <h3>Completed</h3>
+                    <p id="doneTasks">0</p>
+                </div>
+
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>Project Completion</span>
+                    <span id="progressPercentage">0%</span>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="kanban-board">
+            
+            <div class="kanban-column" data-status="todo">
+                <div class="column-header">
+                    <h2 class="column-title">To Do</h2>
+                    <span class="task-count" id="count-todo">0</span>
+                </div>
+                <div class="tasks-container" id="todo"></div>
+            </div>
+
+            <div class="kanban-column" data-status="inprogress">
+                <div class="column-header">
+                    <h2 class="column-title">In Progress</h2>
+                    <span class="task-count" id="count-inprogress">0</span>
+                </div>
+                <div class="tasks-container" id="inprogress"></div>
+            </div>
+
+            <div class="kanban-column" data-status="done">
+                <div class="column-header">
+                    <h2 class="column-title">Done</h2>
+                    <span class="task-count" id="count-done">0</span>
+                </div>
+                <div class="tasks-container" id="done"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script2.js"></script>
+</body>
+</html>
