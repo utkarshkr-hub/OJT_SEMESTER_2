@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Developer Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-container">
+            <h1 class="logo"><i class="fab fa-github"></i> DevExplorer</h1>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="search-section">
+            <form id="search-form" class="search-form">
+                <div class="input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="username-input" placeholder="Search GitHub username..." required autocomplete="off">
+                </div>
+                <button type="submit" class="btn-primary">Explore</button>
+            </form>
+            <div id="rate-limit-badge" class="rate-badge">
+                Rate Limit: <span id="rate-remaining">60</span>/60 left
+            </div>
+        </section>
+
+        <div id="message-container" class="hidden"></div>
+
+        <div id="dashboard" class="dashboard-grid hidden">
+            
+            <aside class="profile-sidebar">
+                <div class="card profile-card">
+                    <img id="user-avatar" src="" alt="User Avatar" class="avatar">
+                    <h2 id="user-name"></h2>
+                    <a id="user-login" href="" target="_blank"></a>
+                    <p id="user-bio" class="bio"></p>
+                    
+                    <div class="profile-details">
+                        <p id="user-location"><i class="fas fa-map-marker-alt"></i> <span></span></p>
+                        <p id="user-blog"><i class="fas fa-link"></i> <a href="" target="_blank"></a></p>
+                        <p id="user-twitter"><i class="fab fa-twitter"></i> <a href="" target="_blank"></a></p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-count" id="count-repos">0</span>
+                            <span class="stat-label">Repos</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-count" id="count-followers">0</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-count" id="count-following">0</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Language Breakdown</h3>
+                    <div id="languages-container" class="languages-container">
+                        </div>
+                </div>
+            </aside>
+
+            <section class="repos-section">
+                <div class="repos-header card">
+                    <h3>Repositories</h3>
+                    <div class="sort-control">
+                        <label for="repo-sort">Sort by:</label>
+                        <select id="repo-sort" class="select-dropdown">
+                            <option value="stars">Stars (High to Low)</option>
+                            <option value="forks">Forks (High to Low)</option>
+                            <option value="updated">Recently Updated</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="repos-list" class="repos-list">
+                    </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

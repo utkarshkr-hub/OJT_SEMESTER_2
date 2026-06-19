@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Pulse | Live News Aggregator</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-container">
+            <h1 class="logo"><i class="fas fa-newspaper"></i> GlobalPulse</h1>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle visual theme">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="controls-section card">
+            <form id="search-form" class="search-form">
+                <div class="input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search topics, keywords, sources..." autocomplete="off">
+                </div>
+                <button type="submit" class="btn-primary">Search</button>
+            </form>
+
+            <div class="categories-wrapper">
+                <button class="category-chip active" data-category="general">General</button>
+                <button class="category-chip" data-category="technology">Technology</button>
+                <button class="category-chip" data-category="business">Business</button>
+                <button class="category-chip" data-category="science">Science</button>
+                <button class="category-chip" data-category="sports">Sports</button>
+                <button class="category-chip" data-category="entertainment">Entertainment</button>
+            </div>
+        </section>
+
+        <div id="status-container" class="status-container hidden"></div>
+
+        <section id="news-grid" class="news-grid">
+            </section>
+
+    </main>
+
+    <script src="script3.js"></script>
+</body>
+</html>
