@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    color:#222;
+    transition:.3s;
+}
+
+.dark{
+    background:#1e1e1e;
+    color:white;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:#4f46e5;
+    color:white;
+}
+
+#themeBtn{
+    padding:10px 15px;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2{
+    margin-bottom:15px;
+}
+
+.team,
+.projects,
+.contact{
+    padding:50px 10%;
+}
+
+.team h2,
+.projects h2,
+.contact h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.team-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.dark .card{
+    background:#2d2d2d;
+}
+
+.card img{
+    width:120px;
+    border-radius:50%;
+    margin-bottom:10px;
+}
+
+.card a{
+    text-decoration:none;
+    color:#4f46e5;
+    font-weight:bold;
+}
+
+.projects{
+    display:grid;
+    gap:20px;
+}
+
+.project-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.dark .project-box{
+    background:#2d2d2d;
+}
+
+form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+textarea{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+form button{
+    background:#4f46e5;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#result{
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+    header{
+        padding:20px;
+    }
+
+    .team,
+    .projects,
+    .contact{
+        padding:30px 20px;
+    }
+}

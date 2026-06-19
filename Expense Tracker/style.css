@@ -1,0 +1,105 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#334155;
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+.box p{
+    margin-top:10px;
+    color:#475569;
+    font-size:22px;
+    font-weight:bold;
+}
+
+form{
+    display:grid;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+input,
+select{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    padding:12px;
+    border:none;
+    background:#475569;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.transaction{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:12px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn{
+    background:#475569;
+}
+
+.delete-btn{
+    background:#64748b;
+}
+
+.actions button{
+    padding:8px 12px;
+}
+
+@media(max-width:600px){
+
+    .transaction{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+}
