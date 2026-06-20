@@ -83,7 +83,7 @@ header{
     color:#4f46e5;
     font-weight:bold;
 }
-
+/* projects */
 .projects{
     display:grid;
     gap:20px;
@@ -94,6 +94,24 @@ header{
     padding:20px;
     border-radius:15px;
     box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit; /* Keeps text color same as parent */
+}
+
+.project-link:visited,
+.project-link:hover,
+.project-link:active,
+.project-link:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-box {
+    cursor: pointer;
 }
 
 .dark .project-box{
